@@ -4,7 +4,8 @@
       <p><%= @post.content %><p>
       <div class="post-menus">
         <%= link_to "編集", edit_post_path(@post.id), class: "post_edit_button" %>
-      </div>
+        <%= link_to "削除", destroy_post_path(@post.id), method: :post, class: "post_delete_button" %>
+      </div>  
     </div>
   </div>
 </div>
