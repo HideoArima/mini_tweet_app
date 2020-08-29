@@ -20,4 +20,13 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
+  def edit
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.name = params[:name]
+    @user.email = params[:email]
+  end
 end
