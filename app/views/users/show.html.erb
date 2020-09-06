@@ -1,12 +1,15 @@
-<div class="main user-show">
+<div class="main posts-show">
   <div class="container">
-    <div class="user">
-      <%= image_tag "/user_images/#{@user.image}" %>
-      <h2><%= @user.name %></h2>
-      <p><%= @user.email %></p>
-      <% if @user.id == @current_user.id %>
-        <%= link_to "ユーザー情報を編集する", edit_user_path(@user.id), class: "user_edit_button" %>
-      <% end %>
+    <div class="posts-show-item">
+      <div class="post-user-name">
+        <img src="<%= "/user_images/#{@user.image}"%>">
+        <%= link_to @user.name, user_path(@user) %>
+      </div>
+      <p><%= @post.content %><p>
+      <div class="post-menus">
+        <%= link_to "編集", edit_post_path(@post.id), class: "post_edit_button" %>
+        <%= link_to "削除", destroy_post_path(@post.id), method: :post, class: "post_delete_button" %>
+      </div>
     </div>
   </div>
 </div>
