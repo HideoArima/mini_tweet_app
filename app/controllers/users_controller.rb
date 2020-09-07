@@ -57,8 +57,8 @@ class UsersController < ApplicationController
   def login
      @user = User.find_by(email: params[:email], password: params[:password])
     if @user
-      flash[:notice] = "ログインしました。"
       session[:user_id] = @user.id
+      flash[:notice] = "ログインしました。"
       redirect_to posts_index_url
     else
       @error_message = "メールアドレスまたはパスワードが間違っています。"
@@ -74,7 +74,7 @@ class UsersController < ApplicationController
     redirect_to login_url
   end
   
-  def limitation_login_user
+  def limitation_correct_user
     unless @current_user.id == params[:id].to_i
       flash[:notice] = "他のユーザーの編集はできません"
       redirect_to posts_index_url
